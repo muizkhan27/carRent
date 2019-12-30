@@ -14,10 +14,10 @@ class Login extends Component{
         const {username,password}=this.state
         if(username=="admin" && password=="admin")
         {
-            this.props.navigation.navigate('home')
+            this.props.navigation.navigate('dashboard')
         }
         else{
-           Alert.alert('Error','Credentials dont match')
+           Alert.alert('Error !! Credentials dont match')
         }
     }
    

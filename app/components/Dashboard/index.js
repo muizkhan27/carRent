@@ -7,10 +7,26 @@ import { View, Image } from 'react-native';
 import { gestureHandlerRootHOC,ScrollView } from 'react-native-gesture-handler';
 
 
+class Dashboard extends Component{
+
+    static navigationOptions ={
+        header:null
+    }
+
+    render() {
+        return(
+            <App/>
+        );
+    }
+}
+
+
+
 const customDrawerComponent=(props)=>(
+    
     <SafeAreaView style={{flex:1}}>
-        <View Style={{height:150,backgroundColor:'black'}}>
-            <Image source={require('./logo1.jpg' )} style={{height:120 ,width:120,borderRadius:60,alignSelf:'center'}}></Image>
+        <View Style={{height:200}}>
+            <Image  source={require('./logo1.jpg' )} style={{height:120 ,  width:120,borderRadius:60,alignSelf:'center'}}></Image>
 
         </View> 
         <ScrollView>
@@ -19,6 +35,7 @@ const customDrawerComponent=(props)=>(
     </SafeAreaView>
 )
 const MyApp =  createDrawerNavigator({
+
     profile:{
       screen:Profile
     },
@@ -29,9 +46,11 @@ const MyApp =  createDrawerNavigator({
 }, {
     drawerBackgroundColor:'white',
     drawerPosition:'left',
-    drawerType:'front',
-    hideStatusBar:true,
+    drawerType:'slide',
+    
+    contentOptions:{activeTintColor:'coral'},
     contentComponent:customDrawerComponent
 })
-const Home = createAppContainer(MyApp);
-export default Home
+
+const App = createAppContainer(MyApp);
+export default Dashboard
