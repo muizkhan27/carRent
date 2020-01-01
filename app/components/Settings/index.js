@@ -28,8 +28,10 @@ class Settings extends Component{
                            
                          </Icon>
                      </Left>
-                     <Text style={{padding:100,alignSelf:'center',justifyContent:'center'}}> Header</Text>
-
+                     <Text style={{padding:100,alignSelf:'center',justifyContent:'center'}}> Settings</Text>
+                     <Right>
+                        <Icon name ='search'></Icon>
+                      </Right>
                  </Header>
 
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { createAppContainer, SafeAreaView } from 'react-navigation';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
-import Profile from '@components/Profile'
+import Home from '@components/Home'
 import Settings from '@components/Settings'
 import { View, Image } from 'react-native';
 import { gestureHandlerRootHOC,ScrollView } from 'react-native-gesture-handler';
+import { Text } from 'native-base';
 
 
 class Dashboard extends Component{
@@ -25,19 +26,19 @@ class Dashboard extends Component{
 const customDrawerComponent=(props)=>(
     
     <SafeAreaView style={{flex:1}}>
-        <View Style={{height:200}}>
-            <Image  source={require('./logo1.jpg' )} style={{height:120 ,  width:120,borderRadius:60,alignSelf:'center'}}></Image>
-
+        <View style={{height:160,backgroundColor:'coral',alignItems:'center',padding:10}}>
+            <Image  source={require('./logo1.jpg' )} style={{height:100 ,width:100,borderRadius:20,borderColor:'orange',alignItems:'center',justifyContent:'center'}}></Image>
+            <Text>Profile name</Text>
         </View> 
-        <ScrollView>
+        <ScrollView style={{borderWidth:0.5,borderColor:'orange'}}>
             <DrawerItems {...props}></DrawerItems>
         </ScrollView>
     </SafeAreaView>
 )
 const MyApp =  createDrawerNavigator({
 
-    profile:{
-      screen:Profile
+    home:{
+      screen:Home
     },
     settings:{
         screen:Settings
@@ -47,7 +48,6 @@ const MyApp =  createDrawerNavigator({
     drawerBackgroundColor:'white',
     drawerPosition:'left',
     drawerType:'slide',
-    
     contentOptions:{activeTintColor:'coral'},
     contentComponent:customDrawerComponent
 })

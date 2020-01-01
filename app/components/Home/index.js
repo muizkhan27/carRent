@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import {
-        View,Text,Button,Image,StyleSheet
+        View,Text,Button,Image,StyleSheet,ScrollView
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import {Header,Left,Icon, Right, Container} from 'native-base';
 import { SliderBox } from "react-native-image-slider-box"; 
-class Profile extends Component{
+import Popular from '@components/Home/popular.js'
+class Home extends Component{
 
 constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ constructor(props) {
         require('./car2.jpg'),
         require('./car3.jpg'),
         require('./car4.jpg')
-        
+
                  
       ]
     };
@@ -25,7 +26,7 @@ constructor(props) {
     static navigationOptions = {
         
         header:null,
-        drawerLabel: 'Profile',
+        drawerLabel: 'Home',
         drawerIcon: ({ tintColor }) => (
           <Image
             source={require('./chat-icon.png')}
@@ -43,29 +44,52 @@ constructor(props) {
                   <Left>
                   <Icon  name='menu' onPress={()=>this.props.navigation.openDrawer()}></Icon>  
                     </Left>
-                    <Text style={{padding:100,alignSelf:'center',justifyContent:'center'}}> Header</Text>
-
+                    <Text style={{padding:100,alignSelf:'center',justifyContent:'center'}}> Home</Text>
+                      <Right>
+                        <Icon name ='search'></Icon>
+                      </Right>
                 </Header>
-               
-                <View style={{ flex:1}}> 
+          
+                <View style={{ flex:2}}>    
                 <SliderBox
                 
                       images={this.state.images}
                       dotColor="coral"
                       inactiveDotColor="beige"
                       resizeMethod={'resize'}
-                      sliderBoxHeight={260}
+                      sliderBoxHeight={250}
                       resizeMode={'cover'}
                       autoplay
                       circleLoop
                       disableOnPress='true'
+                      TouchableOpacity='false'
                         />
                           <Text style={styles.slidertxt}>CarRent !!</Text>
-                           <Text style={{position:'absolute',marginTop:200,fontSize:15,fontStyle:'italic'}}> Finding the best match.. </Text> 
+                          <Text style={{position:'absolute',marginTop:210,fontSize:15}}> Finding the best match.. </Text> 
                  </View>
-                 <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                   <Text>Profile screen</Text>
+                 <ScrollView scrollEventThrottle={16}>
+                 <View style={{flex:1,backgroundColor:'white'}}>
+                        <Text style={{fontSize:25,fontWeight:'bold',fontFamily:'lucida grande',paddingHorizontal:10}}>Most Popular Cars</Text>
+
+                        <View style={{height:160,backgroundColor:'whitesmoke'}}>
+                          <ScrollView horizontal={true}
+                              showsHorizontalScrollIndicator={false}>
+                            <Popular imageUri={require('./lx1.jpg')} txt="BMW su01"/>  
+                            <Popular imageUri={require('./lx2.jpg')} txt="Mercedez bens"/> 
+                            <Popular imageUri={require('./lx4.jpg')} txt="Land cruiser"/>  
+                            <Popular imageUri={require('./lx5.jpg')} txt="Honda s660"/>  
+
+                          
+                          </ScrollView>
+                        </View>
+
+
+
+
                  </View>
+                 </ScrollView>
+                   
+                 
                   </View>
               
            
@@ -90,12 +114,12 @@ constructor(props) {
         slidertxt:{
           alignSelf:'flex-start',
            position: 'absolute',
-           marginTop:160 ,
+           marginTop:170 ,
            fontFamily:'lucida grande',
            fontSize: 30,
-           color:'salmon',
+           color:'whitesmoke',
            fontWeight:'bold',
            textShadowColor:'grey'
         }
       });
-export default Profile
+export default Home
