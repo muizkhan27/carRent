@@ -26,9 +26,11 @@ class Signup extends Component{
                 <TextInput style={inputs}  placeholder="First name" placeholderTextColor='white'></TextInput>
                 <TextInput style={inputs}  placeholder="Last name" placeholderTextColor='white'></TextInput>
                 <TextInput style={inputs}  placeholder="Email"  placeholderTextColor='white' ></TextInput>
+                  <TextInput style={inputs}  placeholder="Ph no." placeholderTextColor='white'></TextInput>
+                <TextInput style={inputs}  placeholder="Address" placeholderTextColor='white'></TextInput>
                 <TextInput style={inputs}  placeholder="Password" placeholderTextColor='white'></TextInput>
                 <TextInput style={inputs}  placeholder="Confirm password" placeholderTextColor='white'></TextInput>
-
+             
                 <View style={btnprop}>
               
               <Button title="Submit" color='orange'  ></Button> 

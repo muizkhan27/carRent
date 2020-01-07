@@ -5,18 +5,19 @@ container:{
         flex:1,
         justifyContent:'center',
         padding:20,  
+        
     },
 logos:{
-    width:200,
-    height:200,
-    alignSelf:'center'
+    width:100,
+    height:100,
+    justifyContent:'center',
+    
+   
 },
 headings:{
-    fontSize:30,
-    fontWeight:'bold',
-    textAlign:'center',
-    fontStyle:'italic',
-    fontFamily:'sans-serif'
+    
+    
+   
     
     
 }

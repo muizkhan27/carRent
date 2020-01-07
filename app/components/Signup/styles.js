@@ -40,7 +40,7 @@ export default StyleSheet.create({
      },
      backgroundImage:{
          flex:1,
-         opacity:.8 ,
+         shadowOpacity:1,
         width:'100%',
         height:'100%'
      }

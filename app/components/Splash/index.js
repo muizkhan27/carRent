@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-        View, Text,Image,st
+        View, Text,Image, ImageBackground
 } from 'react-native';
 import styles from './styles';
 class Splash extends Component{
@@ -21,9 +21,14 @@ class Splash extends Component{
         
         return(
             <View style={container}>
-            <Image source={require('./logo1.jpg')} style={logos} ></Image>
-            <Text style={headings} >CarRent !!</Text>
-            </View>
+            <ImageBackground source={require('./logo1.jpg')} style={{height:200,width:200,alignSelf:'center',justifyContent:'center'}}>
+                    
+                    <Image source={require('./LOGO-1.png')} style={{marginTop:150,height:200,width:200,resizeMode:'contain'}}></Image>
+
+               
+            </ImageBackground>
+
+                </View>
         );
     }
 }
