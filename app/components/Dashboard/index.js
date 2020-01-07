@@ -4,9 +4,10 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import Home from '@components/Home'
 import Settings from '@components/Settings'
 import Feedback from '@components/Feedback'
-import { View, Image,Text } from 'react-native';
-import { gestureHandlerRootHOC,ScrollView } from 'react-native-gesture-handler';
+import { View, Image,Text,TouchableHighlight  } from 'react-native';
+import { gestureHandlerRootHOC,ScrollView, } from 'react-native-gesture-handler';
 import Booking from '../Booking';
+import  Icon  from 'react-native-vector-icons/MaterialIcons';
 
 
 class Dashboard extends Component{
@@ -38,8 +39,17 @@ const customDrawerComponent=(props)=>(
                     borderBottomColor: 'grey',
                     borderBottomWidth: 0.5
                     }}/>
-                  
+        <TouchableHighlight>
+        <View style={{padding:10,marginHorizontal:10,flexDirection:'row'}}>
+               <Icon name='mail' size={30}></Icon>
+                <Text style={{marginHorizontal:10}}>Contact Us</Text>
+            </View> 
+        </TouchableHighlight>
+             
          </View>
+          
+           
+       
             
             
     </SafeAreaView>

@@ -13,11 +13,14 @@
   import Dashboard from '@components/Dashboard'
   import Splash from '@components/Splash';
   import Signup from '@components/Signup'
+  import DealerDashboard from '@components/DealerDashboard'
+  
   const MainNavigator = createStackNavigator({
     Splash:Splash,
     login: Login,
     signup:Signup,
-    dashboard:Dashboard
+    dashboard:Dashboard,
+    dealerDashboard:DealerDashboard
   
   });
   const App = createAppContainer(MainNavigator);

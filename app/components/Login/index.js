@@ -16,6 +16,10 @@ class Login extends Component{
         {
             this.props.navigation.navigate('dashboard')
         }
+        else if( username=="dealer" && password=="dealer")
+        {
+            this.props.navigation.navigate('dealerDashboard')
+        }
         else{
            Alert.alert('Error !! Credentials dont match')
         }
