@@ -17,7 +17,7 @@ export default class CarDetails extends Component {
   render() {
     return (
             <ScrollView>
-        <View style={{flex:1, backgroundColor: 'cyan'}}>
+        <View style={{flex:1, backgroundColor: 'white'}}>
          <View
           style={{
             flex: 2,
@@ -61,9 +61,10 @@ export default class CarDetails extends Component {
             justifyContent: 'flex-end',
             backgroundColor: 'white',
           }}>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={0.8}
             style={{
               width: '100%',
+              
               height: 50,
               backgroundColor: 'coral',
               alignItems: 'center',
