@@ -3,20 +3,23 @@ import {
         View,Text,Button,Image,StyleSheet,TouchableWithoutFeedback,Switch
 } from 'react-native';
 import SearchBar from 'react-native-searchbar';
-import {Header,Left,Icon, Right, Container} from 'native-base';
+import {Header,Left, Right, Container} from 'native-base';
+import  Icon  from 'react-native-vector-icons/Feather';
 import ToggleSwitch from 'toggle-switch-react-native'
 class Settings extends Component{
     constructor() {
       super();
       this.state = {
-         switchValue: false,
+         switch1Value: false,
+         switch2Value: false,
+         switch3Value: false,
       }}
     static navigationOptions = {
       header:null,
 
         drawerLabel: 'Settings',
         drawerIcon: ({ tintColor }) => (
-          <Icon name ='settings' size={20}></Icon>
+          <Icon name ='settings' size={25}></Icon>
         ),
       };
       
@@ -32,23 +35,43 @@ class Settings extends Component{
           />
                <Header style={{justifyContent:'flex-start',backgroundColor:'coral'}}>
                   <Left>
-                         <Icon  name='menu' onPress={()=>this.props.navigation.openDrawer()}></Icon>
+                         <Icon  name='menu' size={25} onPress={()=>this.props.navigation.openDrawer()}></Icon>
                      </Left>
-                     <Text style={{padding:100,alignSelf:'center',fontSize:17,justifyContent:'center'}}> Settings</Text>
+                     <Text style={styles.headertxt}> Settings</Text>
                      <Right>
-                        <Icon name ='options' onPress={()=>this.searchBar.show()}></Icon>
+                        <Icon name ='more-vertical' size={25} ></Icon>
                       </Right>
                  </Header>
 
                  <TouchableWithoutFeedback onPress={()=>this.searchBar.hide()} >
 
                   <View style={{flex:1}}>
-                  
-                     <View style={{alignItems:'flex-start',flexDirection:'row',borderBottomWidth:0.3,borderBottomColor:'grey'}}>  
-                       <Text style={{padding:10,fontSize:20}}>Notifications</Text>
-                         <Switch style={{padding:10,marginHorizontal:130}} value={this.state.switchValue} onValueChange={(switchValue)=>this.setState({switchValue})}
-                          />
-                    </View> 
+                  <View style={styles.smallView}>  
+                       <Text style={{padding:10,fontSize:20}}> Location </Text>
+                        <Right><Switch value={this.state.switch1Value} onValueChange={(switch1Value)=>this.setState({switch1Value})}
+                          /></Right> 
+                      </View> 
+
+                      <View style={styles.smallView}>  
+                       <Text style={{padding:10,fontSize:20}}> Profile Public </Text>
+                        <Right>
+                          <Switch value={this.state.switch3Value} onValueChange={(switch3Value)=>this.setState({switch3Value})}/>
+                          </Right> 
+                      </View> 
+
+                     <View style={styles.smallView}>  
+                       <Text style={{padding:10,fontSize:20}}> Notifications</Text>
+                        <Right><Switch value={this.state.switch2Value} onValueChange={(switch2Value)=>this.setState({switch2Value})}
+                          /></Right> 
+                      </View> 
+                      <View style={{alignItems:'flex-start',flexDirection:'row'}}>  
+                       <Text style={{padding:10,fontSize:23,fontWeight:'bold'}}> Account Settings</Text>
+                       
+                      </View> 
+
+                      
+                     
+                      
                     
             </View>
                 
@@ -61,29 +84,7 @@ class Settings extends Component{
         );
     }
 }
-const items = [
-  1337,
-  'janeway',
-  {
-    lots: 'of',
-    different: {
-      types: 0,
-      data: false,
-      that: {
-        can: {
-          be: {
-            quite: {
-              complex: {
-                hidden: [ 'gold!' ],
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-  [ 4, 2, 'tree' ],
-];
+
 
 const styles = StyleSheet.create({
     icon: {
@@ -94,7 +95,21 @@ const styles = StyleSheet.create({
       flex:1,
     
     },
-    search:{ borderWidth:1,borderRadius:10, borderColor:'blue'}
+    headertxt:{
+      padding:100,
+      alignSelf:'center',
+      fontSize:18,
+      justifyContent:'center'
+  },
+    smallView:{
+    alignItems:'flex-start',
+    flexDirection:'row',
+    borderBottomWidth:0.5,
+    borderBottomColor:'grey'
+  },
+    search:{ borderWidth:1,
+      borderRadius:10,
+       borderColor:'blue'}
   });
 
 export default Settings

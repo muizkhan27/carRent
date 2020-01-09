@@ -10,7 +10,7 @@ class Popular extends Component{
 
     render() {
         return(
-            <View style={{height:150,width:150,borderRadius:5,margin:10,borderWidth:0.5,borderColor:'grey'}}>
+            <View style={{height:150,width:150,shadowColor:'maroon',shadowOpacity:1,shadowRadius:6,borderRadius:5,margin:10,borderWidth:0.5,borderColor:'grey'}}>
             <View style={{flex:2}}>
                   <Image source={this.props.imageUri}  style={{flex:1,height:null,borderRadius:5,width:null,resizeMode:'cover'}}  >
 
@@ -18,8 +18,8 @@ class Popular extends Component{
             </View>
             <View style={{flex:1}}>
                 <Text style=
-                 {{fontSize:15,fontWeight:'bold',fontFamily:'lucida grande',margin:5}} >
-    {                   this.props.txt}</Text>
+                 {{fontSize:17,fontWeight:'bold',fontFamily:'lucida grande',margin:5,color:'crimson'}} >
+                  {this.props.txt}</Text>
             </View>
 
           </View>

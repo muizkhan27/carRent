@@ -5,7 +5,9 @@ import {
 } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
-import {Header,Left,Icon, Right, Container} from 'native-base';
+import {Header,Left, Right, Container} from 'native-base';
+import  Icon  from 'react-native-vector-icons/Feather';
+
 import Scheduled from '@components/Booking/Scheduled.js'
 import History from '@components/Booking/History.js'
 class Booking extends Component{
@@ -17,7 +19,7 @@ class Booking extends Component{
         
         drawerLabel: 'Booking',
         drawerIcon: ({ tintColor }) => (
-            <Icon name ='calendar' size={20}></Icon>
+            <Icon name ='calendar' size={25}></Icon>
 
         ),
       };
@@ -28,13 +30,13 @@ class Booking extends Component{
             <View style={styles.container}>
                <Header style={{justifyContent:'flex-start',backgroundColor:'coral'}}>
                   <Left>
-                         <Icon  name='menu' onPress={()=>this.props.navigation.openDrawer()}>
+                         <Icon  name='menu' size={25} onPress={()=>this.props.navigation.openDrawer()}>
                            
                          </Icon>
                      </Left>
-                     <Text style={{padding:100,alignSelf:'center',fontSize:17,justifyContent:'center'}}> Booking</Text>
+                     <Text style={styles.headertxt}> Booking</Text>
                      <Right>
-                        <Icon name ='search'onPress={()=>this.SearchBar.show()}></Icon>
+                        <Icon name ='more-vertical' size={25} ></Icon>
                       </Right>
                  </Header>
                  <App/>
@@ -70,9 +72,9 @@ const MyApp =createMaterialTopTabNavigator({
         inactiveTintColor:'white',
         indicatorStyle:{
                 backgroundColor:'maroon',
-                shadowColor:'red'
+                shadowColor:'#98B438'
         },
-        style:{backgroundColor:'#98B438'}
+        style:{backgroundColor:'coral'}
     },
    
    
@@ -87,6 +89,12 @@ const styles = StyleSheet.create({
     container:{
       flex:1,
     
+    },
+    headertxt:{
+        padding:100,
+        alignSelf:'center',
+        fontSize:18,
+        justifyContent:'center'
     }
   });
 
