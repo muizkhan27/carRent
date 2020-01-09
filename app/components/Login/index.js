@@ -9,6 +9,8 @@ class Login extends Component{
     state={username:"", password: ""}
     static navigationOptions ={
         header:null
+        
+        
     }
     checkLogin() {
         const {username,password}=this.state
@@ -33,8 +35,9 @@ class Login extends Component{
                 
                 <TextInput style={inputs} placeholder="Username" onChangeText={text=>this.setState({username:text})} ></TextInput>
                 <TextInput style={inputs}  placeholder="Password" secureTextEntry={true}  onChangeText={text=>this.setState({password:text})}></TextInput>
-
-                <Button title="Login"   onPress={()=>this.checkLogin()}></Button>
+                <View>
+                <Button  title="Login"   onPress={()=>this.checkLogin()}></Button>
+                </View>
                <View style={btnprop}>
               
                     <Button title="signup" color='orange' onPress={()=>this.props.navigation.navigate('signup')} ></Button> 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {
-        View,Text,Image
+        View,Text,Image,StyleSheet
 } from 'react-native';
 import {Header,Left, Right, Container} from 'native-base';
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import  Icon  from 'react-native-vector-icons/Feather';
+
 class Feedback extends Component{
 
     constructor(props){
@@ -11,10 +12,10 @@ class Feedback extends Component{
     }
     static navigationOptions = {
         header:null,
-  
+        
           drawerLabel: 'Feedback',
           drawerIcon: ({ tintColor }) => (
-            <Icon name ='feedback' size={30}></Icon>
+        <Icon name ='clipboard' size={25}></Icon>
           ),
         };
 
@@ -23,15 +24,34 @@ class Feedback extends Component{
             <View>
                 <Header style={{justifyContent:'flex-start',backgroundColor:'coral'}}>
                   <Left>
-                         <Icon  name='menu' size={30} onPress={()=>this.props.navigation.openDrawer()}></Icon>
+                         <Icon  name='menu' size={25} onPress={()=>this.props.navigation.openDrawer()}></Icon>
                      </Left>
-                     <Text style={{padding:100,alignSelf:'center',fontSize:17,justifyContent:'center'}}> Feedback</Text>
+                     <Text style={styles.headertxt}> Feedback</Text>
                      
                  </Header>
-                <Text>Feedback</Text>
+                <Text style={{fontSize:20,color:'maroon',padding:10}} >Your Feedback is important to us</Text>
+
+
             </View>
         );
     }
 }
+const styles = StyleSheet.create({
+    icon: {
+      width: 20,
+      height: 20,
+    },
+    container:{
+      flex:1,
+    
+    },
+    headertxt:{
+      padding:100,
+      alignSelf:'center',
+      fontSize:18,
+      justifyContent:'center'
+  },
+
+})
 
 export default Feedback

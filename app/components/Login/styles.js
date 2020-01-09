@@ -20,7 +20,7 @@ export default StyleSheet.create({
        marginBottom:10,
        borderStyle:'solid',
        borderWidth:0.5,
-       borderRadius:8,
+       borderRadius:10,
        borderColor:'red'
     },
     logos:{
@@ -31,6 +31,7 @@ export default StyleSheet.create({
     btnprop:{
         marginBottom:6,
         marginTop:6,
-     
+        borderRadius:10,
+        shadowColor:'coral'
     }
 })
