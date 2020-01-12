@@ -4,6 +4,8 @@ import {
 } from 'react-native';
 import {Header,Left, Right, Container} from 'native-base';
 import  Icon  from 'react-native-vector-icons/Feather';
+import { Rating, AirbnbRating } from 'react-native-ratings';
+
 
 class Feedback extends Component{
   state = {type: ''}
@@ -36,18 +38,17 @@ class Feedback extends Component{
                 <Text style={{fontSize:20,color:'maroon',padding:10}} >Your Feedback is important to us</Text>
                 <Text style={{fontSize:15,color:'black',padding:10}} >Your overall rating for this app</Text>
 
-              <Slider maximumValue={10} thumbTintColor='coral' style={{height:30,}} minimumValue={1} minimumTrackTintColor='red' step={1} maximumTrackTintColor='grey' ></Slider>
-              
-              <Text style={{fontSize:15,color:'black',padding:10}} >Select Category For Feedback</Text>
+                <AirbnbRating size={25} reviewColor="coral"/>       
+              <Text style={{fontSize:20,color:'black',padding:10}} >Select Category For Feedback</Text>
 
-              <Picker selectedValue = {this.state.type} onValueChange = {this.updateType}>
+              <Picker style={{color:'maroon'}} mode="dialog" prompt="select" selectedValue = {this.state.type} onValueChange = {this.updateType}>
                <Picker.Item label = "Complaint" value = "complaint" />
                <Picker.Item label = "Suggestion" value = "suggestion" />
                <Picker.Item label = "Complimant" value = "complimant" />
             </Picker>
 
             <Text style={{fontSize:15,color:'black',padding:10}} >Write message</Text>
-            <TextInput style={styles.inputs} placeholder='Type here...' multiline={true}></TextInput>
+            <TextInput style={styles.inputs}  scrollEnabled={true} numberOfLines={5} placeholder='Type here...' multiline={true}></TextInput>
 
             <View style={styles.btnprop}>
                 <Button  title="Submit" color='coral' ></Button>
@@ -67,7 +68,8 @@ const styles = StyleSheet.create({
     
     },
     headertxt:{
-      padding:100,
+      paddingHorizontal:80,
+
       alignSelf:'center',
       fontSize:18,
       justifyContent:'center'
@@ -78,10 +80,11 @@ const styles = StyleSheet.create({
     padding:10,
     maxHeight:200,
     textAlign:'left',
+    textAlignVertical:'top',
     borderStyle:'solid',
     borderWidth:0.5,
     borderRadius:10,
-    borderColor:'red'
+    borderColor:'black'
  },
  btnprop:{
        

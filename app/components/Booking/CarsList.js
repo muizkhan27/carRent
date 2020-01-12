@@ -11,7 +11,15 @@ class CarsList extends Component{
     render() {
         return(
         <View style={{backgroundColor:'white'}}>
-        <View style={{flex:1,padding:20,marginBottom:5,flexDirection:'column',borderRadius:10,borderWidth:0.5,shadowColor:'black',shadowRadius:10,shadowOpacity:1,backgroundColor:'#f5f5f5'}}>
+        <View style={{flex:1,padding:20,
+        marginBottom:10,
+        flexDirection:'column',
+        borderWidth:0.5,
+         borderRadius:15,
+         elevation:8,
+         shadowColor:'black',
+         shadowOpacity:1,
+         backgroundColor:'white'}}>
             <View style={{flex:2}}>
                   <Image source={this.props.imageUri}  style={{flex:1,alignSelf:'center',width:400,height:200,borderRadius:2,resizeMode:'contain'}}  >
                   </Image>
