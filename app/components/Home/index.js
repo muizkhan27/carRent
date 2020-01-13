@@ -5,12 +5,15 @@ import {
 import {  TextInput } from 'react-native-gesture-handler';
 import {Header,Left,Right} from 'native-base';
 import  Icon  from 'react-native-vector-icons/Feather';
-
 import { SliderBox } from "react-native-image-slider-box"; 
 import SearchBar from 'react-native-searchbar';
+import ActionButton from 'react-native-action-button';
 import Popular from '@components/Home/popular.js'
+
+
 class Home extends Component{
 
+  
 constructor(props) {
     super(props);
     
@@ -26,11 +29,9 @@ constructor(props) {
       ]
     };
   }
-  SampleFunction=()=>{
+  
  
-    Alert.alert("Floating Button Clicked");
 
-}
     static navigationOptions = {
         
         header:null,
@@ -39,21 +40,14 @@ constructor(props) {
           <Icon name ='home' size={25}></Icon>
         ),
       };
-    
+      
       render() {
+        
         return (
           
             <View style={styles.container}>
               
-                 <SearchBar style={styles.search}
-                    ref={(ref) => this.searchBar = ref}
-                    placeholder='Search cars'
-                    
-                    allDataOnEmptySearch={true}
-                   
-                    onBack={this.doNothin}
-                    animationDuration={100}
-                           />
+                
               <Header style={{ justifyContent:'flex-start',backgroundColor:'coral'}}>
 
                   <Left>
@@ -64,7 +58,13 @@ constructor(props) {
                         <Icon name ='search' size={25} onPress={()=>this.searchBar.show()}></Icon>
                       </Right>
                 </Header>
-                
+                <SearchBar style={styles.search}
+                    ref={(ref) => this.searchBar = ref}
+                    placeholder='Search cars'
+                    focusOnLayout={false}
+                    allDataOnEmptySearch={true}
+                    animationDuration={100}
+                           />
                 <ScrollView keyboardDismissMode={"on-drag"} showsVerticalScrollIndicator={false} >
 
                 <View >    
@@ -104,11 +104,11 @@ constructor(props) {
                         <View style={{height:160}}>
                           <ScrollView horizontal={true}
                               showsHorizontalScrollIndicator={false}>
-                            <Popular imageUri={require('./lx1.jpg')} txt="Mercedez "/>  
-                            <Popular imageUri={require('./lx2.jpg')} txt="BMW su01"/> 
-                            <Popular imageUri={require('./lx4.jpg')} txt="Land cruiser"/>  
-                            <Popular imageUri={require('./lx5.jpg')} txt="Honda s660"/>  
-                            <Popular imageUri={require('./car5.jpg')} txt="Audi r6"/>  
+                            <Popular imageUri={require('./lx2.jpg')} txt="BMW su01" ratings={4.5} ratings_num={15}/> 
+                            <Popular imageUri={require('./lx1.jpg')} txt="Mercedez" ratings={5} ratings_num={10}/>  
+                            <Popular imageUri={require('./lx4.jpg')} txt="Land cruiser" ratings={4} ratings_num={15}/>  
+                            <Popular imageUri={require('./lx5.jpg')} txt="Honda s660" ratings={4} ratings_num={14}/>  
+                            <Popular imageUri={require('./car5.jpg')} txt="Audi r6" ratings={5} ratings_num={8}/>  
 
 
                           
@@ -129,11 +129,11 @@ constructor(props) {
                             <View style={{height:160}}>
                               <ScrollView horizontal={true}
                                   showsHorizontalScrollIndicator={false}>
-                                <Popular imageUri={require('./lx4.jpg')} txt="Land cruiser"/>  
-                                <Popular imageUri={require('./lx5.jpg')} txt="Honda s660"/>  
-                                <Popular imageUri={require('./lx2.jpg')} txt="BMW Su01"/> 
-                                <Popular imageUri={require('./car6.jpg')} txt="Audi r8"/>  
-                                <Popular imageUri={require('./lx1.jpg')} txt="Mercedez "/>  
+                                <Popular imageUri={require('./lx4.jpg')} txt="Land cruiser" ratings={4} ratings_num={12}/>  
+                                <Popular imageUri={require('./lx5.jpg')} txt="Honda s660" ratings={4.5} ratings_num={16}/>  
+                                <Popular imageUri={require('./lx2.jpg')} txt="BMW Su01" ratings={5} ratings_num={10} /> 
+                                <Popular imageUri={require('./car6.jpg')} txt="Audi r8" ratings={4} ratings_num={11}/>  
+                                <Popular imageUri={require('./lx1.jpg')} txt="Mercedez " ratings={4.5} ratings_num={13}/>  
 
                               
                               </ScrollView>
@@ -143,9 +143,11 @@ constructor(props) {
 
                              
  
+                            <View style={{marginTop:10,flexDirection:'row'}}>
+                        <Text style={{fontSize:25,fontWeight:'bold',fontFamily:'lucida grande',paddingHorizontal:10}}>Top Dealers</Text>
+                        </View>
 
-
-
+                  
 
 
                  </View>
@@ -153,13 +155,15 @@ constructor(props) {
                 </TouchableWithoutFeedback>
                  </ScrollView>
                    
-                 <TouchableOpacity activeOpacity={0.5} onPress={this.SampleFunction} style={styles.TouchableOpacityStyle} >
-
-            <Icon name='plus'  size={45} 
-
-                          style={styles.FloatingButtonStyle} />
-
-</TouchableOpacity>  
+                 <ActionButton buttonColor="coral" spacing={10}>
+          <ActionButton.Item buttonColor='#9b59b6' title="New Booking" textContainerStyle={{height:25}}  textStyle={{fontSize:15}} onPress={() => console.log("notes tapped!")}>
+            <Icon name="truck" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#3498db' textStyle={{fontSize:15,color:'maroon'}} textContainerStyle={{height:25}} title="Notifications" onPress={() => {}}>
+            <Icon name="bell" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+         
+        </ActionButton>
  </View>
               
            
@@ -197,7 +201,8 @@ constructor(props) {
           backgroundColor:'grey',
           fontSize:15
         },
-        headertxt:{padding:100,
+        headertxt:{
+          paddingHorizontal:80,
           alignSelf:'center',
           fontSize:17,
           justifyContent:'center'},
@@ -219,6 +224,11 @@ constructor(props) {
           backgroundColor:'coral',
           borderRadius:23,
           alignSelf:'center'
-        }
+        },
+        actionButtonIcon: {
+          fontSize: 20,
+          height: 22,
+          color: 'white',
+        },
       });
 export default Home
