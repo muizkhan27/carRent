@@ -11,8 +11,9 @@ import DealerCars from '@components/DealerCars'
 import  Icon  from 'react-native-vector-icons/MaterialIcons';
 import { Row } from 'native-base';
 import { Overlay } from 'react-native-elements';
-
-
+import Summary from '@components/DealerHome';
+import MyBookings from './../DealerBookings';
+import Statistics from './../DealerStats'
 
 class Dashboard extends Component{
 
@@ -70,10 +71,16 @@ const customDrawerComponent=(props)=>(
 const MyApp =  createDrawerNavigator({
 
     home:{
-      screen:Home
+      screen:Summary
     },
     dealerCars:{
         screen:DealerCars
+    },
+    MyBookings:{
+        screen:MyBookings
+    },
+    Statistics:{
+        screen:Statistics
     },
     settings:{
         screen:Settings

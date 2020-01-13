@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {
-        View,Image,Text,Button
+    TouchableHighlight,View,Image,Text,Button,StyleSheet
 } from 'react-native';
+import { withTheme } from 'react-native-elements';
+import  Icon  from 'react-native-vector-icons/MaterialIcons';
 class Car extends Component{
 
     constructor(props){
@@ -10,27 +12,100 @@ class Car extends Component{
 
     render() {
         return(
-            <View style={{backgroundColor:'white'}}>
-            <View style={{flex:1,padding:20,marginBottom:5,flexDirection:'column',borderRadius:10,borderWidth:0.5,shadowColor:'black',shadowRadius:10,shadowOpacity:1,backgroundColor:'#f5f5f5'}}>
-            <View style={{flex:2}}>
-                  <Image source={this.props.imageUri}  style={{flex:1,alignSelf:'center',width:400,height:200,borderRadius:2,resizeMode:'contain'}}  >
+            <View style={styles.car_box}>
+            <View >
+                  <Image style={styles.image_style} source={this.props.imageUri}  >
                   </Image>
+                  <Text style={{color:'#727272',paddingVertical:5,paddingHorizontal:5}}>lorem wgfiweiof ewgf8weyf iuwegf8weiw weyr89yq3 9y9r8yq yer98y34 etyr98 yq349ew yr9834y cyf8ye 98reg iger jfb
+                      uehf98eh iufhe iurfnjwe ciuer gfiuer hui erhf  ei
+                  </Text>
             </View>
-            <View style={{flex:2,flexDirection:'column'}}>
-            <Text style=
-                 {{fontSize:15,fontWeight:'bold',color:'darkcyan',fontFamily:'lucida grande'}} >
-                    Model:</Text>
-                <Text style=
-                 {{fontSize:15,fontWeight:'bold',fontFamily:'lucida grande'}} >
+
+            <View style={{flexDirection:'row',paddingLeft:10, paddingVertical:5}} >
+            <Text style={{fontWeight:'bold'}} >
+                    Name:</Text>
+                <Text  >
                     {this.props.txt}</Text>
                     
             </View>
+            <View style={{flexDirection:'row',paddingLeft:10}} >
+            <Text style={{fontWeight:'bold'}} >
+                    Model:</Text>
+                <Text  >
+                    2014</Text>
+                    
+            </View>
+           <View style={{flexDirection:"row-reverse"}}>
+               
+               {/* <View  ><Button color='#cf0202' title='Remove'></Button></View>
+               <View style={{marginRight:5}}><Button color='#f3b909' title='Edit Details'></Button></View> */}
+               <TouchableHighlight
+         style={styles.buttonRed}
+         onPress={this.onPress}
+        >
+            <View style={{flexDirection:'row'}}>
+            <Icon name='delete' style={styles.icon_btn}></Icon>
+         <Text style={styles.icon_txt}> Remove </Text></View>
+        </TouchableHighlight>
+               <TouchableHighlight
+         style={styles.buttonOrg}
+         onPress={this.onPress}
+        >
+            <View style={{flexDirection:'row'}}>
+            <Icon name='edit' style={styles.icon_btn}></Icon>
+         <Text style={styles.icon_txt}> Edit Details </Text></View>
+        </TouchableHighlight>
+        
+
+           </View>
 
 
-          </View>
           </View>
         );
     }
 }
+ const styles=StyleSheet.create({
+     car_box:{
+         backgroundColor:'white',
+         padding:10,
+         shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
 
+        elevation: 4,
+        borderRadius:4,
+        margin:15
+     },
+     image_style:{
+         flex:1,
+         alignSelf:'center',
+         resizeMode:"contain",
+         height:200,
+         width:300,
+         borderRadius:2
+     },
+     icon_btn:{
+        fontSize:15,
+        marginTop:3,
+        color:'white'
+     },
+     icon_txt:{
+        fontSize:15,
+        color:'white'
+     },
+     buttonOrg:{
+        backgroundColor:'#f3b909',
+        marginRight:10,
+        padding:6,
+        borderRadius:5
+     },buttonRed:{
+         backgroundColor:'#d30707',
+         padding:6,
+         borderRadius:5
+     }
+ })
 export default Car
