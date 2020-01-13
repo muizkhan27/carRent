@@ -91,8 +91,7 @@ const styles = StyleSheet.create({
     
     },
     headertxt:{
-        paddingHorizontal:80,
-       
+        padding:100,
         alignSelf:'center',
         fontSize:18,
         justifyContent:'center'

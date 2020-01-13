@@ -40,7 +40,7 @@ class Login extends Component{
                 </View>
                <View style={btnprop}>
               
-                    <Button title="signup" color='#98B438' onPress={()=>this.props.navigation.navigate('signup')} ></Button> 
+                    <Button title="signup" color='orange' onPress={()=>this.props.navigation.navigate('signup')} ></Button> 
                
                </View>
                

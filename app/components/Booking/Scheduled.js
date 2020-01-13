@@ -20,21 +20,16 @@ class Scheduled extends Component{
     
 
     render() {
-      const { navigate }=this.props.navigation;
         return(
            
                         <View style={{flex:1}}>
                           <ScrollView>
                             
-                           <TouchableOpacity activeOpacity={0.8} onPress={()=> navigate('details',{carName:'Mercedez Benz',dealerName:'Bari Motors',carImage:'./lx1.jpg'})}>
+                           <TouchableOpacity activeOpacity={0.8} onPress={()=>this.props.navigation.navigate('details')}>
                              
                            <CarsList imageUri={require('./lx1.jpg')} txt="Mercedez Benz" dealer="Bari Motors" date='20-jan-2020' time='20:00'/> 
                              </TouchableOpacity>  
-                             <TouchableOpacity activeOpacity={0.8} onPress={()=> navigate('details',{carName:'BMW 790i',dealerName:'Ahmad Autos'})}>
-
                             <CarsList imageUri={require('./lx2.jpg')} txt="BMW 790i"dealer="Ahmad Autos"date='10-feb-2020' time='16:00'/> 
-                            </TouchableOpacity>  
-
                             <CarsList imageUri={require('./lx5.jpg')} txt="Honda s660"dealer="Pak Autos"date='25-feb-2020' time='22:00'/>  
                             <CarsList imageUri={require('./lx4.jpg')} txt="Land cruiser"dealer="Chaudhry Autos"date='22-feb-2020'time='18:00'/>  
 
